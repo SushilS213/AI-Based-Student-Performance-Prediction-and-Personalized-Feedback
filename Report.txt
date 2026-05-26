@@ -1,0 +1,216 @@
+Student Performance Prediction Analysis Report
+Introduction
+
+This project focuses on predicting student performance using Machine Learning classification algorithms. The objective of the project was to analyze student-related data, preprocess the dataset, apply multiple machine learning models, compare their performances, and identify the best-performing model.
+
+The project was implemented using Python and Scikit-learn libraries.
+
+Dataset Overview
+
+The dataset used in this project contains information related to student performance.
+The dataset included:
+
+Student demographic details
+Academic information
+Performance-related attributes
+
+The target variable of the project was:
+
+Performance_Label
+
+which represents the final performance category of students.
+
+Technologies & Libraries Used
+Python Libraries
+Pandas
+NumPy
+Matplotlib
+Seaborn
+Scikit-learn
+Data Preprocessing
+
+Data preprocessing was one of the most important phases of the project.
+
+1. Data Loading
+
+The dataset was loaded using Pandas:
+
+pd.read_csv()
+2. Handling Categorical Data
+
+The dataset contained categorical columns such as:
+
+Gender
+Branch
+Performance_Label
+Label Encoding
+
+Initially, Label Encoding was applied to convert categorical values into numerical form.
+
+Example:
+
+Gender	Encoded
+Male	0
+Female	1
+
+However, Label Encoding creates an artificial numerical order between categories, which may affect some machine learning algorithms.
+
+One Hot Encoding
+
+To improve model performance, One Hot Encoding was later applied on feature columns such as:
+
+Gender
+Branch
+
+This converted categories into binary columns.
+
+Example:
+
+Gender_Male	Gender_Female
+1	0
+0	1
+
+The target variable:
+
+Performance_Label
+
+was still encoded using Label Encoding because classification algorithms require numerical target labels.
+
+Feature Scaling
+
+After encoding, feature scaling was performed using:
+
+StandardScaler()
+
+Scaling normalized the feature values and improved the performance of distance-based and optimization-based algorithms such as:
+
+Logistic Regression
+KNN
+
+The dataset was split into:
+
+Training Data
+Testing Data
+
+using:
+
+train_test_split()
+Machine Learning Models Used
+
+The following classification algorithms were applied:
+
+Logistic Regression
+K-Nearest Neighbors (KNN)
+Naive Bayes
+Decision Tree Classifier
+Model Evaluation Metrics
+
+The models were evaluated using:
+
+Accuracy Score
+Precision Score
+Recall Score
+F1 Score
+Confusion Matrix
+Logistic Regression Analysis
+Before One Hot Encoding
+Accuracy ≈ 99.33%
+After One Hot Encoding + Scaling
+Accuracy ≈ 99.66%
+Precision ≈ 99.67%
+Recall ≈ 99.66%
+F1 Score ≈ 99.66%
+Observation
+
+Logistic Regression achieved the best performance among all models.
+The training and testing accuracies were almost equal, indicating:
+
+Excellent generalization
+No major overfitting
+Strong predictive capability
+
+This became the best-performing and most reliable model in the project.
+
+KNN Analysis
+Before One Hot Encoding
+Accuracy ≈ 90%
+After One Hot Encoding
+Accuracy decreased to ≈ 86%
+Observation
+
+KNN performance decreased after One Hot Encoding because:
+
+One Hot Encoding increased feature dimensions
+KNN is distance-based
+High-dimensional sparse data negatively affected distance calculations
+
+The model also showed slight overfitting.
+
+Naive Bayes Analysis
+Before One Hot Encoding
+Accuracy ≈ 96%
+After One Hot Encoding
+Accuracy improved to ≈ 99%
+Observation
+
+Naive Bayes handled encoded categorical features efficiently and showed:
+
+Stable performance
+Good generalization
+Low overfitting
+
+It became the second-best model in the project.
+
+Decision Tree Analysis
+Before One Hot Encoding
+Accuracy ≈ 98%
+After One Hot Encoding
+Accuracy = 100%
+Observation
+
+Decision Tree achieved perfect accuracy on both training and testing data.
+
+Although this result appears excellent, it indicates:
+
+Possible overfitting
+Memorization of patterns
+Extremely easy feature splitting
+
+Therefore, despite high accuracy, the model was considered less reliable than Logistic Regression.
+
+Final Model Comparison
+Model	Label Encoding Accuracy	One Hot Encoding Accuracy
+Logistic Regression	99.33%	99.66%
+Naive Bayes	96%	99%
+Decision Tree	98%	100%
+KNN	90.6%	86%
+Best Model Selection
+Best Model:
+Logistic Regression
+Reasons:
+Highest reliable accuracy
+Excellent generalization
+Balanced train-test performance
+Minimal overfitting
+Strong handling of encoded and scaled data
+Key Learnings From The Project
+
+During this project, the following important machine learning concepts were learned:
+
+Data preprocessing
+Label Encoding
+One Hot Encoding
+Feature Scaling
+Train-Test Splitting
+Classification algorithms
+Model comparison
+Overfitting analysis
+Confusion Matrix interpretation
+Performance metric evaluation
+Conclusion
+
+This project successfully demonstrated how machine learning algorithms can be used to predict student performance. Multiple classification models were trained and evaluated using different preprocessing techniques.
+
+Among all models, Logistic Regression combined with One Hot Encoding and Standard Scaling produced the best and most reliable performance with approximately 99.66% accuracy.
+
+The project also highlighted how preprocessing techniques significantly influence model performance and why proper model evaluation is important in machine learning workflows.
